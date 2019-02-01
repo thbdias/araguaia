@@ -2,3 +2,8 @@ git remote add origin git@github.com:thbdias/araguaia.git
 
 docker run -it --rm --user "$(id -u):$(id -g)" -v "$PWD":/usr/src/app -w /usr/src/app rails rails new --skip-bundle araguaia --database=postgresql
 
+docker-compose build
+
+docker-compose run --rm app bundle install
+
+docker-compose run --rm app bundle exec rails generate rspec:install
